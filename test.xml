@@ -1,0 +1,7 @@
+<craft>
+    <craft name="paper" src="./index.xml"/>
+    <row>        
+        <paper side1="10" side2="20" side3="10"> </paper>
+    </row>
+	 
+</craft>
