@@ -8,22 +8,25 @@
         function main(params) {
 
             if (params.side1 != 'none') { //bottom
-					var bar1 = cube({size:[20,10,3]})
+                var length1 = params.side1
+				var bar1 = cube({size:[20,length1,3]})
             }
 
             if (params.side2 != 'none') { //bottom
-					var bar2 = cube({size:[20,30,3]})
+                var length2 = params.side2
+				var bar2 = cube({size:[20,length2,3]})
             }
 
             if(params.side3 != 'none'){
-                var bar3 = cube({size:[20,20,3]})
+                var length3 = params.side3
+                var bar3 = cube({size:[20,length3,3]})
             }
             return union(
 							bar1
 							,mathhinge().translate([0,-5,0])
-							,bar2.translate([0,-40,0])
-                            ,mathhinge().translate([0,-45,0])
-                            ,bar3.translate([0,-70,0])
+							,bar2.translate([0,-30,0])
+                            ,mathhinge().translate([0,-35,0])
+                            ,bar3.translate([0,-50,0])
 						);
 
         } // end of main
