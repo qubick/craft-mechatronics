@@ -80,7 +80,7 @@ void mouseReleased() {
       UI = 1;    drawMode = 1;    UI_A();        
     }  else if (mouseX>=150 && mouseX <=170 && mouseY >=575 && mouseY <=595) {       ////////////// save Image
       Draw_FoldingNet();
-
+      Write_xml();
     }
     if (mouseX>=85 && mouseX<=115 && mouseY>260 && mouseY<=285) {  ////////////////// type to change the total length
       typeMode = 6;
@@ -553,7 +553,39 @@ void drawMap() {         ///////////////////////////// convert to the map
   text("12:", 795, 580);   text(buffFloat4[1], 820, 580);
 }
 
+void Write_xml(){
+  PrintWriter output;
+  output = createWriter("folding_net.xml");
+  
+  float p1 = map_part01 * 0.1;
+  float p2 = map_part02 * 0.1;
+  float p3 = map_part03 * 0.1;
+  float p4 = 8;
+  float p5 = map_part04B * 0.1;
+  float p6 = map_part05B * 0.1;
+  
+  output.flush();
+  
+  output.println("<craft>");
+  output.println("<craft name='fold' src='./index.xml'/>");
+  output.println("<row>");
+  
+  output.println("<fold side1='"+p1 + "' side2='"+p2 + "' side3='"+p3 +"' side4='"+p4 +"'>");
+  output.println("</fold>");
+  output.println("<fold side1='"+p4 + "' side2='"+p3 + "' side3='"+p2 +"' side4='"+p1 +"'>");
+  output.println("</fold>");
+  
+  output.println("<fold side1='"+p5 + "' side2='"+p6 + "' side3='"+p4 +"'>");
+  output.println("</fold>");
+  output.println("<fold side1='"+p4 + "' side2='"+p6 + "' side3='"+p5 +"'>");
+  output.println("</fold>");
+  
+  output.println("</row>");
+  output.println("</craft>");
+  
+  output.close();
 
+}
 
 void Draw_FoldingNet() {
   PGraphics pdf = createGraphics(1400, 550, PDF, "folding_net.pdf");
