@@ -29,6 +29,11 @@
 			if(params.side4 != 'none'){
                 length4 = params.side4
                 var bar4 = cube({size:[10,length4,1.5]})
+
+                bar4 = difference(
+                        bar4
+                        ,cylinder({r:1,h:4}).translate([5,2,0.5])
+                )
             }
 
             var line = union(
@@ -37,17 +42,27 @@
 							
 				,bar2.translate([0,length1+6,0])
                 ,hinge.translate([0,length1+length2+9,0])
-                     
-				,bar3.translate([0,length1+length2+12,0])
 			);
 
             if (params.side4 != -1){
 
                 line = union(
                     line
+                    ,bar3.translate([0,length1+length2+12,0])
+
                     ,hinge.translate([0,length1+length2+length3+15,0])
                     ,bar4.translate([0,length1+length2+length3+18,0])
                 );
+            } else if(params.side4 === -1){
+                bar3 = difference(
+                        bar3
+                        ,cylinder({r:1.2,h:4}).translate([5,2,0])
+                        ,cylinder({r:1,h:4}).translate([1.4,2,0.5])
+                    )
+                line = union(
+                    line
+                    ,bar3.translate([0,length1+length2+12,0])
+                )
             }
 
             return line;
