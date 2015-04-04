@@ -2,7 +2,7 @@
     <parameter name="side1" type="int" default="3"/>
     <parameter name="side2" type="int" default="5"/> 
     <parameter name="side3" type="int" default="2"/> 
-    <parameter name="side4" type="int" default="7"/>
+    <parameter name="side4" type="int" default="-1"/>
 
     <script type="text/openjscad">
         function main(params) {
@@ -13,37 +13,44 @@
 
             if (params.side1 != 'none') { //bottom
                 length1 = params.side1
-			     var bar1 = cube({size:[20,length1,3]})
+			     var bar1 = cube({size:[10,length1,1.5]})
             }
 
             if (params.side2 != 'none') { //bottom
                length2 = params.side2
-				var bar2 = cube({size:[20,length2,3]})
+				var bar2 = cube({size:[10,length2,1.5]})
             }
 
             if(params.side3 != 'none'){
                 length3 = params.side3
-                var bar3 = cube({size:[20,length3,3]})
+                var bar3 = cube({size:[10,length3,1.5]})
             }
             
 			if(params.side4 != 'none'){
                 length4 = params.side4
-                var bar4 = cube({size:[20,length4,3]})
+                var bar4 = cube({size:[10,length4,1.5]})
             }
 
-            return union(
+            var line = union(
 				bar1
-				,hinge.translate([0,length1,0])
+				,hinge.translate([0,length1+3,0])
 							
-				//,bar2.translate([0,length1,0])
-                //,hinge.translate([0,length1+length2,0])
+				,bar2.translate([0,length1+6,0])
+                ,hinge.translate([0,length1+length2+9,0])
                      
-				//,bar3.translate([0,length1+length2,0])
-                //,hinge.translate([0,length1+length2+length3+20,0])
-				
-                //,bar4.translate([0,length1+length2+length3+27,0])
-
+				,bar3.translate([0,length1+length2+12,0])
 			);
+
+            if (params.side4 != -1){
+
+                line = union(
+                    line
+                    ,hinge.translate([0,length1+length2+length3+15,0])
+                    ,bar4.translate([0,length1+length2+length3+18,0])
+                );
+            }
+
+            return line;
 
         } // end of main
         
@@ -72,7 +79,7 @@
             var bar2 = bar(length, border, height)
                         .translate([0, -2*border-hinge_radius-gap, 0]);
 
-            return union(hinge_module, bar1, bar2).scale([0.5,0.5,0.5]);
+            return union(hinge_module, bar1, bar2);
 
         }
 
