@@ -6,8 +6,10 @@
 
     <script type="text/openjscad">
         function main(params) {
+        var hinge = mathhinge();
+        hinge = hinge.scale([0.5,0.5,0.5])
 
-        var legnth1, length2, length3, length4, length5;
+        var legnth1, length2, length3, length4;
 
             if (params.side1 != 'none') { //bottom
                 length1 = params.side1
@@ -31,18 +33,15 @@
 
             return union(
 				bar1
-				,mathhinge().translate([0,length1+6,0])
+				,hinge.translate([0,length1,0])
 							
-				,bar2.translate([0,length1+10,0])
-                ,mathhinge().translate([0,length1+length2+16,0])
+				//,bar2.translate([0,length1,0])
+                //,hinge.translate([0,length1+length2,0])
                      
-				,bar3.translate([0,length1+length2+20,0])
-                ,mathhinge().translate([0,length1+length2+length3+26,0])
+				//,bar3.translate([0,length1+length2,0])
+                //,hinge.translate([0,length1+length2+length3+20,0])
 				
-                ,bar4.translate([0,length1+length2+length3+30,0])
-                //,mathhinge().translate([0,length1+length2+length3+length4+36,0])
-				
-                //,bar5.translate([0,length1+length2+length3+length4+40,0])
+                //,bar4.translate([0,length1+length2+length3+27,0])
 
 			);
 
@@ -73,7 +72,7 @@
             var bar2 = bar(length, border, height)
                         .translate([0, -2*border-hinge_radius-gap, 0]);
 
-            return union(hinge_module, bar1, bar2);
+            return union(hinge_module, bar1, bar2).scale([0.5,0.5,0.5]);
 
         }
 
