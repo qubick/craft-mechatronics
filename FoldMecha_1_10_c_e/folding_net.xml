@@ -1,13 +1,13 @@
 <craft>
 <craft name='fold' src='./index.xml'/>
-<row>
-<fold side1='17.142859' side2='28.57143' side3='45.71429' side4='8.0'>
+<row spacing="5">
+<fold side1='40' side2='6' side3='30' side4='6'>
 </fold>
-<fold side1='8.0' side2='45.71429' side3='28.57143' side4='17.142859'>
+<fold side1='40' side2='6' side3='30' side4='6'>
 </fold>
-<fold side1='5.0' side2='22.142859' side3='8.0'>
+<fold side1='20' side2='30' side3='6'>
 </fold>
-<fold side1='8.0' side2='22.142859' side3='5.0'>
+<fold side1='20' side2='30' side3='6'>
 </fold>
 </row>
 </craft>
