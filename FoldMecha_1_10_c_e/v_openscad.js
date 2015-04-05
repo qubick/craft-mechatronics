@@ -12,12 +12,12 @@ var params = {
 
             if (params.side1 != 'none') { //bottom
                 length1 = params.side1
-    		     var bar1 = cube({size:[10,length1,1.5]})
+                 var bar1 = cube({size:[10,length1,1.5]})
             }
 
             if (params.side2 != 'none') { //bottom
                length2 = params.side2
-				var bar2 = cube({size:[10,length2,1.5]})
+                var bar2 = cube({size:[10,length2,1.5]})
             }
 
             if(params.side3 != 'none'){
@@ -25,7 +25,7 @@ var params = {
                 var bar3 = cube({size:[10,length3,1.5]})
             }
             
-			if(params.side4 != 'none'){
+            if(params.side4 != 'none'){
                 length4 = params.side4
                 var bar4 = cube({size:[10,length4,1.5]})
 
@@ -36,12 +36,12 @@ var params = {
             }
 
             var line = union(
-				bar1
-				,hinge.translate([0,length1+3,0])
-							
-				,bar2.translate([0,length1+6,0])
+                bar1
+                ,hinge.translate([0,length1+3,0])
+                            
+                ,bar2.translate([0,length1+6,0])
                 ,hinge.translate([0,length1+length2+9,0])
-			);
+            );
 
             if (params.side4 != -1){
 
@@ -72,11 +72,11 @@ var params = {
 
             length = 20; // Length of the complete hinge
             height = 3; // Height (diameter) of the hinge
-            clearance = 0.7; // Clearance between cones and holes   
+            clearance = 0.3; // Clearance between cones and holes   
             gap = 0.6; // Clearance between hinge and sides             
 
             // Parameters that the user does not get to specify
-            $fn=24*1;
+            fn=24*1;
             border = 2*1; 
             fudge = .01*1;          // to preserve mesh integrity
             corner = 0*1;       // space between hinge and corner
