@@ -32,7 +32,7 @@
 
                 bar4 = difference(
                         bar4
-                        ,cylinder({r:1,h:4}).translate([5,2,0.5])
+                        ,cylinder({r:1,h:4}).translate([5,2,0])
                 )
             }
 
@@ -57,7 +57,7 @@
                 bar3 = difference(
                         bar3
                         ,cylinder({r:1.2,h:4}).translate([5,2,0])
-                        ,cylinder({r:1,h:4}).translate([1.7,2,0.5])
+                        ,cylinder({r:1,h:4}).translate([1.7,2,0])
                     )
                 line = union(
                     line

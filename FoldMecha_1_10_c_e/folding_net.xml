@@ -1,7 +1,7 @@
 <craft>
 <craft name='fold' src='./index.xml'/>
 <row spacing="5">
-<fold side1='40' side2='6' side3='30' side4='6'>
+<fold side1='35' side2='6' side3='30' side4='6'>
 </fold>
 <fold side1='20' side2='30' side3='6'>
 </fold>
